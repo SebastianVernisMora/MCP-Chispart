@@ -1,0 +1,1 @@
+[orchestrator] nl task dispatched {"id":"4bf4dbf0-2e2a-4014-a6b4-24df4d48c713","title":"Revisar errores 500 en checkout y proponer plan de solución","repo":"Yega-API","delivered":["codex","gemini"],"provider":"blackbox","model":"blackboxai/anthropic/claude-3.7-sonnet"}

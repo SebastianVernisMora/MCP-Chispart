@@ -1,0 +1,2 @@
+[orchestrator] mailboxes ready {"root":".mcp/mailboxes"}
+[orchestrator] state ready {"root":".mcp/state"}

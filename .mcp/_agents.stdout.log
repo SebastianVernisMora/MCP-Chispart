@@ -1,0 +1,7 @@
+Blackbox agent started.
+Mistral agent started.
+Test agents started (codex, gemini).
+[blackbox] adapter running; inbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/blackbox.in, outbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/blackbox.out
+[gemini] adapter running; inbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/gemini.in, outbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/gemini.out
+[codex] adapter running; inbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/codex.in, outbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/codex.out
+[mistral] adapter running; inbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/mistral.in, outbox=/home/sebastianvernis/Yega-MCP-SANDBOX/.mcp/mailboxes/mistral.out

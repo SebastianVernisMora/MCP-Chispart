@@ -1,0 +1,28 @@
+{
+  "id": "3cdf9291-6ffe-4465-9ded-1baf4b5cadcc",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-API"
+    ]
+  },
+  "task": {
+    "id": "2507e7fb-5cc6-4eed-8b33-3fb6b51a8db6",
+    "title": "E2E: análisis y soporte dev",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T04:31:16.919Z",
+    "version": "2.0",
+    "correlationId": "1772d371-2b15-48d7-b128-6a042afd4b7a"
+  }
+}

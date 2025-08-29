@@ -1,0 +1,11 @@
+{
+  "mailboxesRoot": ".mcp/mailboxes",
+  "stateRoot": ".mcp/state",
+  "agents": [
+    {"name": "codex", "role": "coordinator", "repos": ["global", "Yega-API", "Yega-Cliente", "Yega-Tienda", "Yega-Repartidor", "chispart-cloud-tools"]},
+    {"name": "gemini", "role": "qa", "repos": ["Yega-API", "Yega-Cliente", "Yega-Tienda", "Yega-Repartidor", "chispart-cloud-tools"]},
+    {"name": "qwen", "role": "analysis", "repos": ["Yega-API", "Yega-Cliente", "Yega-Tienda", "Yega-Repartidor", "chispart-cloud-tools"]},
+    {"name": "blackbox", "role": "dev-support", "repos": ["Yega-API", "Yega-Cliente", "Yega-Tienda", "Yega-Repartidor", "chispart-cloud-tools"]},
+    {"name": "mistral", "role": "dev-support", "repos": ["Yega-API", "Yega-Cliente", "Yega-Tienda", "Yega-Repartidor", "chispart-cloud-tools"]}
+  ]
+}

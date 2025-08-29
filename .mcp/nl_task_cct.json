@@ -1,0 +1,10 @@
+{
+  "created": true,
+  "taskId": "29a203c1-9a85-4e3e-b25a-4bd781e84d36",
+  "title": "Auditar tiempos de build y caché CI",
+  "repo": "chispart-cloud-tools",
+  "delivered": [
+    "codex",
+    "gemini"
+  ]
+}

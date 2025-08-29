@@ -1,0 +1,35 @@
+{
+  "provider": "blackbox",
+  "model": "blackboxai/anthropic/claude-3.5-haiku-20241022",
+  "status": 200,
+  "structured": {
+    "version": "mcp/result-summary@1",
+    "status": "in_progress",
+    "summary": "Investigación de errores 500 en proceso de checkout con múltiples propuestas de solución y mejoras de código",
+    "highlights": [
+      "Identificadas múltiples estrategias para reducir errores 500",
+      "Propuestas de validación de datos de entrada",
+      "Mejoras en manejo de errores y logging",
+      "Implementación de validaciones de stock y transacciones atómicas"
+    ],
+    "risks": [
+      "Posibles problemas de validación de datos",
+      "Errores en manejo de transacciones de base de datos",
+      "Potenciales fallos en validación de stock de productos"
+    ],
+    "next_steps": [
+      "Implementar parches propuestos en checkout.service.ts",
+      "Actualizar checkout.controller.ts con nuevas validaciones",
+      "Ejecutar pruebas unitarias e integración",
+      "Revisar logs de producción para confirmar reducción de errores 500"
+    ],
+    "evidence": {
+      "updates": 12,
+      "artifacts": [
+        "src/services/checkout.service.ts",
+        "src/controllers/checkout.controller.ts"
+      ]
+    }
+  },
+  "at": "2025-08-29T05:33:08.289Z"
+}

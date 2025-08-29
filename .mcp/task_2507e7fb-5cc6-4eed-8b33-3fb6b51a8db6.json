@@ -1,0 +1,37 @@
+{
+  "id": "2507e7fb-5cc6-4eed-8b33-3fb6b51a8db6",
+  "title": "E2E: análisis y soporte dev",
+  "description": "",
+  "repo": "Yega-API",
+  "status": "pending",
+  "createdAt": "2025-08-29T04:30:25.493Z",
+  "updatedAt": "2025-08-29T04:30:29.458Z",
+  "updates": [
+    {
+      "at": "2025-08-29T04:30:25.493Z",
+      "from": "orchestrator",
+      "type": "task.create",
+      "payload": {}
+    },
+    {
+      "at": "2025-08-29T04:30:28.048Z",
+      "from": "qwen",
+      "type": "log.error",
+      "payload": {
+        "provider": "qwen-cli",
+        "code": 1,
+        "stderr": ""
+      }
+    },
+    {
+      "at": "2025-08-29T04:30:29.458Z",
+      "from": "qwen",
+      "type": "log.error",
+      "payload": {
+        "provider": "qwen-cli",
+        "code": 1,
+        "stderr": ""
+      }
+    }
+  ]
+}
