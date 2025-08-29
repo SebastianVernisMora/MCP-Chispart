@@ -1,0 +1,51 @@
+{
+  "id": "750e7c3b-3bdb-42b3-b27e-8de49ea18d51",
+  "title": "E2E: flujo base con adapters",
+  "description": "",
+  "repo": "Yega-API",
+  "status": "in_progress",
+  "createdAt": "2025-08-29T04:30:23.784Z",
+  "updatedAt": "2025-08-29T04:30:24.284Z",
+  "updates": [
+    {
+      "at": "2025-08-29T04:30:23.784Z",
+      "from": "orchestrator",
+      "type": "task.create",
+      "payload": {}
+    },
+    {
+      "at": "2025-08-29T04:30:23.793Z",
+      "from": "codex",
+      "type": "task.update",
+      "payload": {
+        "status": "in_progress",
+        "note": "codex tomó la tarea"
+      }
+    },
+    {
+      "at": "2025-08-29T04:30:23.792Z",
+      "from": "gemini",
+      "type": "task.update",
+      "payload": {
+        "status": "in_progress",
+        "note": "gemini tomó la tarea"
+      }
+    },
+    {
+      "at": "2025-08-29T04:30:24.284Z",
+      "from": "codex",
+      "type": "task.update.ack",
+      "payload": {
+        "seen": true
+      }
+    },
+    {
+      "at": "2025-08-29T04:30:24.284Z",
+      "from": "gemini",
+      "type": "task.update.ack",
+      "payload": {
+        "seen": true
+      }
+    }
+  ]
+}

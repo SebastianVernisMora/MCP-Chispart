@@ -1,0 +1,28 @@
+{
+  "id": "86c3bd17-edc3-4ebe-a419-27fb5c8351c7",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-API"
+    ]
+  },
+  "task": {
+    "id": "750e7c3b-3bdb-42b3-b27e-8de49ea18d51",
+    "title": "E2E: flujo base con adapters",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T04:31:16.267Z",
+    "version": "2.0",
+    "correlationId": "3c3eca7b-c41f-44ae-acdf-2247e05e8ac5"
+  }
+}

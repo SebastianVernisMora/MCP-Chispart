@@ -1,0 +1,2 @@
+[orchestrator] nl task dispatched {"id":"1828d4be-8973-4130-85f3-cfe2ea5a2f55","title":"Test JSON limpio en salida","repo":"Yega-API","delivered":["codex"],"provider":"blackbox","model":"blackboxai/anthropic/claude-3.7-sonnet"}
+[orchestrator] nl task dispatched {"id":"7c180b29-79fe-444e-9a91-9682ca881631","title":"Optimizar tiempos de carga en página home","repo":"Yega-Cliente","delivered":["codex","gemini"],"provider":"blackbox","model":"blackboxai/anthropic/claude-3.7-sonnet"}

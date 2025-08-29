@@ -1,0 +1,10 @@
+{
+  "created": true,
+  "taskId": "3a5122be-48ff-4a19-a1f9-6f3d5d316f22",
+  "title": "Revisar errores 500 en checkout y proponer plan de solución",
+  "repo": "Yega-API",
+  "delivered": [
+    "codex",
+    "gemini"
+  ]
+}

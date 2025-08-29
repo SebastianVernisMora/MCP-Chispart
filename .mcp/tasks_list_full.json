@@ -1,0 +1,220 @@
+[
+  {
+    "id": "d2d410d3-d725-413d-866a-23b8aa0aa622",
+    "title": "Demo: probar flujo end-to-end",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "done",
+    "createdAt": "2025-08-29T04:29:09.907Z",
+    "updatedAt": "2025-08-29T04:30:24.954Z",
+    "updates": [
+      {
+        "at": "2025-08-29T04:29:09.907Z",
+        "from": "orchestrator",
+        "type": "task.create",
+        "payload": {}
+      },
+      {
+        "at": "2025-08-29T04:29:10.132Z",
+        "from": "codex",
+        "type": "task.update",
+        "payload": {
+          "status": "in_progress",
+          "note": "codex tomó la tarea"
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:10.123Z",
+        "from": "gemini",
+        "type": "task.update",
+        "payload": {
+          "status": "in_progress",
+          "note": "gemini tomó la tarea"
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:10.889Z",
+        "from": "codex",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:10.888Z",
+        "from": "gemini",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:11.768Z",
+        "from": "orchestrator",
+        "type": "task.update",
+        "payload": {
+          "status": "done"
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:12.137Z",
+        "from": "codex",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:12.130Z",
+        "from": "gemini",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      },
+      {
+        "at": "2025-08-29T04:30:24.954Z",
+        "from": "qwen",
+        "type": "log.error",
+        "payload": {
+          "provider": "qwen-cli",
+          "code": 1,
+          "stderr": ""
+        }
+      }
+    ]
+  },
+  {
+    "id": "8e90e288-bb2a-4423-8b0e-1ecae361a87a",
+    "title": "Smoke test chispart mcp",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "in_progress",
+    "createdAt": "2025-08-29T03:56:26.828Z",
+    "updatedAt": "2025-08-29T04:29:10.120Z",
+    "updates": [
+      {
+        "at": "2025-08-29T03:56:26.828Z",
+        "from": "codex",
+        "type": "task.update",
+        "payload": {
+          "status": "in_progress",
+          "note": "codex tomó la tarea"
+        }
+      },
+      {
+        "at": "2025-08-29T03:56:26.787Z",
+        "from": "gemini",
+        "type": "task.update",
+        "payload": {
+          "status": "in_progress",
+          "note": "gemini tomó la tarea"
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:10.127Z",
+        "from": "codex",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      },
+      {
+        "at": "2025-08-29T04:29:10.120Z",
+        "from": "gemini",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "750e7c3b-3bdb-42b3-b27e-8de49ea18d51",
+    "title": "E2E: flujo base con adapters",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "in_progress",
+    "createdAt": "2025-08-29T04:30:23.784Z",
+    "updatedAt": "2025-08-29T04:30:24.284Z",
+    "updates": [
+      {
+        "at": "2025-08-29T04:30:23.784Z",
+        "from": "orchestrator",
+        "type": "task.create",
+        "payload": {}
+      },
+      {
+        "at": "2025-08-29T04:30:23.793Z",
+        "from": "codex",
+        "type": "task.update",
+        "payload": {
+          "status": "in_progress",
+          "note": "codex tomó la tarea"
+        }
+      },
+      {
+        "at": "2025-08-29T04:30:23.792Z",
+        "from": "gemini",
+        "type": "task.update",
+        "payload": {
+          "status": "in_progress",
+          "note": "gemini tomó la tarea"
+        }
+      },
+      {
+        "at": "2025-08-29T04:30:24.284Z",
+        "from": "codex",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      },
+      {
+        "at": "2025-08-29T04:30:24.284Z",
+        "from": "gemini",
+        "type": "task.update.ack",
+        "payload": {
+          "seen": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "2507e7fb-5cc6-4eed-8b33-3fb6b51a8db6",
+    "title": "E2E: análisis y soporte dev",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "pending",
+    "createdAt": "2025-08-29T04:30:25.493Z",
+    "updatedAt": "2025-08-29T04:30:29.458Z",
+    "updates": [
+      {
+        "at": "2025-08-29T04:30:25.493Z",
+        "from": "orchestrator",
+        "type": "task.create",
+        "payload": {}
+      },
+      {
+        "at": "2025-08-29T04:30:28.048Z",
+        "from": "qwen",
+        "type": "log.error",
+        "payload": {
+          "provider": "qwen-cli",
+          "code": 1,
+          "stderr": ""
+        }
+      },
+      {
+        "at": "2025-08-29T04:30:29.458Z",
+        "from": "qwen",
+        "type": "log.error",
+        "payload": {
+          "provider": "qwen-cli",
+          "code": 1,
+          "stderr": ""
+        }
+      }
+    ]
+  }
+]
