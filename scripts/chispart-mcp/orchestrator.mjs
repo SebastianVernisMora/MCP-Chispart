@@ -238,6 +238,7 @@ Usage:
   node scripts/chispart-mcp/orchestrator.mjs tasks close <taskId> [--status done|cancelled]
   node scripts/chispart-mcp/orchestrator.mjs send change "<title>" --repo <repo> [--roles r1,r2] [--agents a1,a2] [--task <taskId>] [--payload '{"key":"val"}']
   node scripts/chispart-mcp/orchestrator.mjs nl task "<pedido NL>" [--repo <repo>] [--roles r1,r2] [--agents a1,a2]
+  node scripts/chispart-mcp/orchestrator.mjs nl exec "<pedido NL>" [--repo <repo>] [--roles r1,r2] [--agents a1,a2]
   node scripts/chispart-mcp/orchestrator.mjs tasks report <taskId>
 `);
 }
@@ -503,6 +504,95 @@ function main() {
         appendTimeline(statePaths, { event: 'task.create', envelope: env });
         console.log(JSON.stringify({ created: true, taskId: env.task.id, title, repo, delivered }, null, 2));
       })().catch(e => { console.error('NL task falló:', e?.message || e); process.exit(1); });
+      return;
+    }
+    if (kind === 'exec') {
+      const flags = parseFlags(rest.slice(1));
+      const nl = flags._.join(' ').trim().replace(/^"|"$/g, '');
+      if (!nl) { console.error('Falta descripción en lenguaje natural'); process.exit(1); }
+      const reposKnown = Array.from(new Set(cfg.agents.flatMap(a => a.repos || [])));
+      const sys = `Convierte la solicitud en un JSON (en bloque \`\`\`json) con el esquema exacto:\n{"version":"mcp/chat-intent@1","action":"list_tasks|show_task|create_task|send_change|close_task|report_task|plan_task|pump","args":{}}\nCampos args por acción:\n- create_task: {"title":"...","repo":"...","roles":["coordinator","qa"]}\n- send_change: {"title":"...","repo":"...","roles":["analysis","dev-support"],"payload":{}}\n- show_task/close_task/report_task/plan_task: {"taskId":"..."}\n- list_tasks/pump: {}.\nRepos válidos: ${reposKnown.join(', ')}.`;
+      (async () => {
+        const { content, model } = await callBlackbox(sys + '\nUsuario: ' + nl, BB_MODEL_DEFAULT);
+        const intent = tryExtractJson(content) || {};
+        const a = intent.action || '';
+        const out = { version: 'mcp/nl-exec@1', provider: 'blackbox', model, action: a, ok: true };
+        if (a === 'list_tasks') {
+          out.result = loadTasks(statePaths).tasks;
+        } else if (a === 'show_task') {
+          const id = intent.args?.taskId; if (!id) throw new Error('Falta taskId');
+          const store = loadTasks(statePaths); const t = store.tasks.find(x => x.id === id); if (!t) throw new Error('Tarea no encontrada');
+          out.result = t;
+        } else if (a === 'create_task') {
+          const repo = flags.repo || intent.args?.repo || 'Yega-API';
+          const roles = (flags.roles ? flags.roles.split(',').map(s => s.trim()) : (Array.isArray(intent.args?.roles) ? intent.args.roles : []));
+          const title = intent.args?.title || nl.slice(0, 80);
+          const target = {}; if (roles.length) target.roles = roles; target.repos = [repo];
+          const env = createTask({ title, description: nl, repo, target });
+          const delivered = routeToAgents(cfg, env);
+          upsertTaskFromEnvelope(statePaths, env, 'orchestrator');
+          appendTimeline(statePaths, { event: 'task.create', envelope: env });
+          out.result = { created: true, taskId: env.task.id, title, repo, delivered };
+        } else if (a === 'send_change') {
+          const repo = flags.repo || intent.args?.repo || 'Yega-API';
+          const roles = (flags.roles ? flags.roles.split(',').map(s => s.trim()) : (Array.isArray(intent.args?.roles) ? intent.args.roles : []));
+          const title = intent.args?.title || nl.slice(0, 80);
+          const payload = intent.args?.payload || {};
+          const target = {}; if (roles.length) target.roles = roles; target.repos = [repo];
+          const env = { id: uuid(), type: 'change.request', agent: { name: 'system', role: 'orchestrator' }, target, task: { id: uuid(), title, description: nl, repo, status: 'pending' }, payload, meta: { timestamp: nowISO(), version: '2.0', correlationId: uuid() } };
+          const delivered = routeToAgents(cfg, env);
+          upsertTaskFromEnvelope(statePaths, env, 'orchestrator');
+          appendTimeline(statePaths, { event: 'change.request', envelope: env });
+          out.result = { dispatched: true, changeId: env.id, taskId: env.task.id, title, repo, delivered };
+        } else if (a === 'close_task') {
+          const id = intent.args?.taskId; if (!id) throw new Error('Falta taskId');
+          const store = loadTasks(statePaths); const t = store.tasks.find(x => x.id === id); if (!t) throw new Error('Tarea no encontrada');
+          const status = 'done';
+          const env = { id: uuid(), type: 'task.update', agent: { name: 'system', role: 'orchestrator' }, target: { repos: [t.repo] }, task: { id: t.id, title: t.title, description: t.description, repo: t.repo, status }, payload: { status }, meta: { timestamp: nowISO(), version: '2.0', correlationId: uuid() } };
+          const delivered = routeToAgents(cfg, env);
+          upsertTaskFromEnvelope(statePaths, env, 'orchestrator');
+          appendTimeline(statePaths, { event: 'task.update', envelope: env });
+          out.result = { closed: true, taskId: t.id, status, delivered };
+        } else if (a === 'report_task') {
+          const id = intent.args?.taskId; if (!id) throw new Error('Falta taskId');
+          const store = loadTasks(statePaths); const t = store.tasks.find(x => x.id === id); if (!t) throw new Error('Tarea no encontrada');
+          const ctx = { task: { id: t.id, title: t.title, description: t.description, repo: t.repo, status: t.status }, updates: t.updates?.slice(-20) || [], artifacts: t.artifacts || {} };
+          const prompt = ['Eres un analista técnico. Resume y evalúa el estado de la tarea. Devuelve JSON válido en bloque json:', '```json', '{"version":"mcp/result-summary@1","status":"in_progress|done|blocked|cancelled","summary":"...","highlights":["..."],"risks":["..."],"next_steps":["..."],"evidence":{"updates":N,"artifacts": ["lastReview","lastChangeset"]}}', '```', 'Contexto:', JSON.stringify(ctx, null, 2)].join('\n');
+          const { status, content, model } = await callBlackbox(prompt, BB_MODEL_SUMMARY);
+          const structured = tryExtractJson(content) || { version: 'mcp/result-summary@1', status: t.status || 'in_progress', summary: String(content).slice(0, 2000) };
+          if (!t.artifacts) t.artifacts = {};
+          t.artifacts.lastSummary = { provider: 'blackbox', model, status, structured: structured, at: nowISO() };
+          saveTasks(statePaths, store);
+          appendTimeline(statePaths, { event: 'task.summary', envelope: { id: uuid(), type: 'result.summary', agent: { name: 'orchestrator', role: 'system' }, task: { id: t.id }, payload: { provider: 'blackbox', model, structured }, meta: { timestamp: nowISO(), version: '2.0' } } });
+          out.result = structured;
+        } else if (a === 'plan_task') {
+          const id = intent.args?.taskId; if (!id) throw new Error('Falta taskId');
+          const store = loadTasks(statePaths); const t = store.tasks.find(x => x.id === id); if (!t) throw new Error('Tarea no encontrada');
+          const cs = t.artifacts?.lastChangeset; if (!cs || !Array.isArray(cs.patches)) throw new Error('No hay changeset estructurado');
+          const plan = { version: 'mcp/pull-plan@1', repo: cs.repo || t.repo, steps: cs.patches.map((p, idx) => ({ id: String(idx + 1), action: 'apply-patch', path: p.path, note: p.note || '' })), tests: cs.tests || [], notes: cs.notes || cs.plan || '' };
+          if (!t.artifacts) t.artifacts = {}; t.artifacts.pullPlan = plan; saveTasks(statePaths, store);
+          appendTimeline(statePaths, { event: 'task.plan', envelope: { id: uuid(), type: 'result.plan', agent: { name: 'orchestrator', role: 'system' }, task: { id: t.id }, payload: { plan }, meta: { timestamp: nowISO(), version: '2.0' } } });
+          out.result = plan;
+        } else if (a === 'pump') {
+          // Ejecutar recolección simple
+          const outgoing = collectOutgoing(cfg);
+          let routed = 0;
+          for (const ev of outgoing) {
+            const type = ev.envelope?.type || '';
+            const isAck = type.endsWith('.ack');
+            const isLog = type.startsWith('log.');
+            appendTimeline(statePaths, { event: 'agent.out', from: ev.from, envelope: ev.envelope });
+            try { upsertTaskFromEnvelope(statePaths, ev.envelope, ev.from); } catch {}
+            if (isAck || isLog) { removeFile(ev.path); continue; }
+            const delivered = routeToAgents(cfg, ev.envelope).filter(a => a !== ev.from);
+            routed += delivered.length; removeFile(ev.path);
+          }
+          out.result = { pumped: true, routed };
+        } else {
+          out.ok = false; out.error = 'Intención no reconocida';
+        }
+        console.log(JSON.stringify(out, null, 2));
+      })().catch(e => { console.error('NL exec falló:', e?.message || e); process.exit(1); });
       return;
     }
     usage();

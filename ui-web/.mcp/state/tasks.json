@@ -1,0 +1,21 @@
+{
+  "tasks": [
+    {
+      "id": "3d084f8a-9c23-49fe-b6ea-279ecba57ddc",
+      "title": "Desde UI",
+      "description": "",
+      "repo": "Yega-UI-Web",
+      "status": "pending",
+      "createdAt": "2025-08-29T11:00:51.498Z",
+      "updatedAt": "2025-08-29T11:00:51.498Z",
+      "updates": [
+        {
+          "at": "2025-08-29T11:00:51.498Z",
+          "from": "orchestrator",
+          "type": "task.create",
+          "payload": {}
+        }
+      ]
+    }
+  ]
+}

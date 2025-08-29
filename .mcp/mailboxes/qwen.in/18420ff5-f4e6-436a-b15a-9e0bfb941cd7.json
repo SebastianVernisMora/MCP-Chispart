@@ -1,0 +1,28 @@
+{
+  "id": "18420ff5-f4e6-436a-b15a-9e0bfb941cd7",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-Cliente"
+    ]
+  },
+  "task": {
+    "id": "5b7faba2-3768-49cf-8e1c-718af8a9aaa0",
+    "title": "Optimizar tiempos de carga en página home",
+    "description": "Mejorar el rendimiento de carga de la página home, enfocándose específicamente en optimizar el LCP (Largest Contentful Paint) y la carga de imágenes para reducir los tiempos de carga y mejorar la experiencia del usuario.",
+    "repo": "Yega-Cliente",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:58.697Z",
+    "version": "2.0",
+    "correlationId": "fc4ae712-b053-4620-b995-6baf2703df78"
+  }
+}

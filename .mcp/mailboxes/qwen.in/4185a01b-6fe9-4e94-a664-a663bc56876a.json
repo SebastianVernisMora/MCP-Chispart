@@ -1,0 +1,28 @@
+{
+  "id": "4185a01b-6fe9-4e94-a664-a663bc56876a",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-API"
+    ]
+  },
+  "task": {
+    "id": "3a5122be-48ff-4a19-a1f9-6f3d5d316f22",
+    "title": "Revisar errores 500 en checkout y proponer plan de solución",
+    "description": "Investigar las causas de los errores 500 que están ocurriendo en el proceso de checkout. Analizar logs, identificar patrones y proponer un plan detallado para resolver estos problemas. El plan debe incluir posibles causas raíz y pasos concretos para implementar soluciones.",
+    "repo": "Yega-API",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:56.627Z",
+    "version": "2.0",
+    "correlationId": "e74462df-194d-4680-b582-45b7c34351a1"
+  }
+}

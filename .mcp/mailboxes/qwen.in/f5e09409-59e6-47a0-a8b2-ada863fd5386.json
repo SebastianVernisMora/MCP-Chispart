@@ -1,0 +1,28 @@
+{
+  "id": "f5e09409-59e6-47a0-a8b2-ada863fd5386",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-API"
+    ]
+  },
+  "task": {
+    "id": "1202550c-8198-4382-ad7f-37cc511e4156",
+    "title": "E2E: change request demo",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:04.009Z",
+    "version": "2.0",
+    "correlationId": "b4ff9e14-7999-4761-964d-107c10ca5105"
+  }
+}

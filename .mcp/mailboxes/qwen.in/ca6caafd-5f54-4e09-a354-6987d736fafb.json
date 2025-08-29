@@ -1,0 +1,28 @@
+{
+  "id": "ca6caafd-5f54-4e09-a354-6987d736fafb",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-Tienda"
+    ]
+  },
+  "task": {
+    "id": "f43c8f03-c08c-4251-b633-61ad7ec28967",
+    "title": "Agregar cache y mejorar paginación",
+    "description": "",
+    "repo": "Yega-Tienda",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:52.219Z",
+    "version": "2.0",
+    "correlationId": "a10c1bf8-a09c-4420-b728-775f684d04ea"
+  }
+}

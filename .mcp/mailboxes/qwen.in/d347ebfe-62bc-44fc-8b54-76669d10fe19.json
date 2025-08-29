@@ -1,0 +1,28 @@
+{
+  "id": "d347ebfe-62bc-44fc-8b54-76669d10fe19",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-Cliente"
+    ]
+  },
+  "task": {
+    "id": "791e62f6-4ef9-4ad3-8227-37e334c1ead1",
+    "title": "Arreglar falla de carga del menú en dispositivos móviles",
+    "description": "El menú no está cargando correctamente en dispositivos móviles. Se requiere revisar la implementación del Server-Side Rendering (SSR) y las configuraciones de lazy-loading que podrían estar causando este problema. Verificar la compatibilidad con diferentes navegadores móviles y optimizar el rendimiento de carga.",
+    "repo": "Yega-Cliente",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:09.863Z",
+    "version": "2.0",
+    "correlationId": "7920f0b4-6304-4972-9403-ad7acd849606"
+  }
+}

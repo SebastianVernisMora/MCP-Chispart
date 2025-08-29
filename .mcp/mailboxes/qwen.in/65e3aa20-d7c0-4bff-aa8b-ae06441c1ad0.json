@@ -1,0 +1,28 @@
+{
+  "id": "65e3aa20-d7c0-4bff-aa8b-ae06441c1ad0",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "chispart-cloud-tools"
+    ]
+  },
+  "task": {
+    "id": "29f7e0a1-81f2-4db9-9b6e-284c0aee366f",
+    "title": "Optimizar pipeline de deploy con cache selectivo",
+    "description": "",
+    "repo": "chispart-cloud-tools",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:16:07.251Z",
+    "version": "2.0",
+    "correlationId": "c1d2e597-8cfc-426b-98e0-21d3c347b0fe"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "bd7843f4-7ce6-4b17-8586-680411b4a80f",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-API"
+    ]
+  },
+  "task": {
+    "id": "8e90e288-bb2a-4423-8b0e-1ecae361a87a",
+    "title": "Smoke test chispart mcp",
+    "description": "",
+    "repo": "Yega-API",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:00.491Z",
+    "version": "2.0",
+    "correlationId": "122b792b-ed9d-4391-be3c-ab01f2e7311f"
+  }
+}

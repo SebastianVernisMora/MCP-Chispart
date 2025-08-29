@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, Arial, sans-serif; margin: 0; color: #222; }
+header, footer { padding: 12px 16px; background: #f5f5f5; border-bottom: 1px solid #ddd; }
+header h1 { margin: 0; font-size: 18px; }
+.actions { float: right; display: flex; gap: 8px; align-items: center; }
+.row { display: flex; gap: 16px; padding: 16px; }
+.col { flex: 1; min-width: 320px; }
+.toolbar { margin-bottom: 8px; display: flex; gap: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #eee; padding: 6px 8px; font-size: 13px; }
+th { background: #fafafa; text-align: left; }
+.timeline { border: 1px solid #eee; height: 60vh; overflow: auto; padding: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; background: #fff; }
+button { padding: 6px 10px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+button:disabled { opacity: 0.6; cursor: default; }
+input { padding: 6px 8px; border: 1px solid #ccc; }
+footer { border-top: 1px solid #ddd; border-bottom: none; }
+
+.tabs { display: flex; gap: 6px; padding: 8px 16px; border-bottom: 1px solid #eee; background: #fafafa; }
+.tab { padding: 6px 10px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
+.tab.active { background: #e6f0ff; border-color: #99b8ff; }
+.tab-pane { display: none; padding: 12px 16px; }
+.tab-pane.active { display: block; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 960px; }
+.form-grid textarea { min-height: 100px; }
+.console { background: #0b1020; color: #d7e6ff; padding: 8px; border-radius: 4px; white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: 12px; }
+.detail { border: 1px solid #eee; min-height: 200px; padding: 8px; background: #fff; font-family: ui-monospace, monospace; font-size: 12px; white-space: pre-wrap; }
+.detail-actions { margin-top: 8px; display: flex; gap: 8px; }
+
+.toast { position: fixed; right: 12px; bottom: 12px; background: rgba(30,30,30,.9); color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 13px; max-width: 70vw; }

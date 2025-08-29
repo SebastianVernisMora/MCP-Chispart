@@ -1,0 +1,28 @@
+{
+  "id": "43a43895-d35e-4b87-a903-13ca2de2058e",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-Cliente"
+    ]
+  },
+  "task": {
+    "id": "2b8d080a-19fa-48a2-bf05-677d2ec9a434",
+    "title": "Optimizar tiempos de carga en página home para reducir LCP",
+    "description": "Realizar una auditoría completa de rendimiento en la página principal, enfocándose en reducir el Largest Contentful Paint (LCP). Incluye revisión y optimización de imágenes, así como evaluación de la implementación del Server-Side Rendering (SSR) para mejorar los tiempos de carga iniciales.",
+    "repo": "Yega-Cliente",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:38.278Z",
+    "version": "2.0",
+    "correlationId": "1d610ae4-698b-4bf4-bf53-728155174f63"
+  }
+}

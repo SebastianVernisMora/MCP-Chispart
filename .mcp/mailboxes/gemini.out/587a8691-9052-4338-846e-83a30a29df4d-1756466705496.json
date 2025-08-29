@@ -1,0 +1,33 @@
+{
+  "id": "587a8691-9052-4338-846e-83a30a29df4d",
+  "type": "task.update",
+  "agent": {
+    "name": "gemini",
+    "role": "qa"
+  },
+  "target": {
+    "roles": [
+      "coordinator",
+      "qa"
+    ],
+    "repos": [
+      "Yega-UI-Web"
+    ]
+  },
+  "task": {
+    "id": "49349817-d5bb-45a2-8a92-d227e6c50365",
+    "title": "Demo task",
+    "description": "crea una tarea demo en Yega-UI-Web",
+    "repo": "Yega-UI-Web",
+    "status": "pending"
+  },
+  "payload": {
+    "status": "in_progress",
+    "note": "gemini tomó la tarea"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:25:05.496Z",
+    "version": "2.0",
+    "correlationId": "d80f5a31-b8e9-4624-bfa0-f09f9dc45049"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "5a280c3f-d4ae-4b07-bcfa-61683e8104ec",
+  "type": "task.create",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "roles": [
+      "coordinator",
+      "qa"
+    ],
+    "repos": [
+      "Yega-UI-Web"
+    ]
+  },
+  "task": {
+    "id": "3d084f8a-9c23-49fe-b6ea-279ecba57ddc",
+    "title": "Desde UI",
+    "description": "",
+    "repo": "Yega-UI-Web",
+    "status": "pending"
+  },
+  "payload": {},
+  "meta": {
+    "timestamp": "2025-08-29T11:00:51.498Z",
+    "version": "2.0",
+    "correlationId": "477377e4-42bd-4068-92ac-ddcd35dca6e5"
+  }
+}

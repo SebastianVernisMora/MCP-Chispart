@@ -1,0 +1,28 @@
+{
+  "id": "acd88cd7-594b-4cf0-9e8c-a46dd48d21e0",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-Tienda"
+    ]
+  },
+  "task": {
+    "id": "54595fe8-0c08-4930-b7fb-ec5ff6b99d18",
+    "title": "Optimizar carga de productos en tienda móvil",
+    "description": "Revisar e implementar mejoras en el rendimiento de carga de productos en la aplicación móvil, enfocándose en la implementación de Server-Side Rendering (SSR) y técnicas de lazy-loading para optimizar la experiencia del usuario y reducir tiempos de carga.",
+    "repo": "Yega-Tienda",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:48.323Z",
+    "version": "2.0",
+    "correlationId": "27b796eb-b035-4ab8-8f8e-30352b0abb8d"
+  }
+}

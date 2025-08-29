@@ -1,0 +1,28 @@
+{
+  "id": "ab1c0e12-f6a9-4ae5-ad90-45f8b718532e",
+  "type": "task.update",
+  "agent": {
+    "name": "system",
+    "role": "orchestrator"
+  },
+  "target": {
+    "repos": [
+      "Yega-API"
+    ]
+  },
+  "task": {
+    "id": "3ae77302-cbc8-4de1-88af-00b873a979dd",
+    "title": "Test JSON limpio en salida",
+    "description": "Verificar que la salida de JSON sea limpia y válida según los estándares requeridos.",
+    "repo": "Yega-API",
+    "status": "done"
+  },
+  "payload": {
+    "status": "done"
+  },
+  "meta": {
+    "timestamp": "2025-08-29T11:13:45.218Z",
+    "version": "2.0",
+    "correlationId": "b58c07c8-1755-497f-b1bc-58131b6567f0"
+  }
+}
