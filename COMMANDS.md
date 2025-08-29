@@ -1,4 +1,5 @@
-# Manual de Comandos – Yega MCP (CLI)
+# Manual de Comandos – Yega MCP (CLI) 🛠️
+![CLI Badge](https://img.shields.io/badge/CLI-Referencias-4caf50?style=for-the-badge&logo=gnu-bash&logoColor=white)
 
 Este manual resume los comandos del wrapper `chispart_mcp.sh` y la interfaz de chat para operar el orquestador y agentes usando lenguaje natural (Blackbox).
 
@@ -134,3 +135,7 @@ Comandos rápidos dentro del chat:
 - No subas `.env` al repositorio (ya está ignorado en `.gitignore`).
 - Usa `.env.example` con placeholders, no keys reales.
 - Evita imprimir keys en consola/logs.
+
+---
+**Sebastian Vernis | Soluciones Digitales**
+
